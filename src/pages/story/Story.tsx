@@ -28,13 +28,22 @@ const Story = () => {
 			</div>
 		);
 	}
+
 	return (
 		<div>
 			<BackButton sx={{ mt: "30px" }} variant="contained">
 				back
 			</BackButton>
 
-			{story && <Content {...story} />}
+			{story && (
+				<Content
+					url={story.url}
+					title={story.title}
+					score={story.score}
+					by={story.by}
+					time={story.time}
+				/>
+			)}
 			{story && (
 				<CommentsListContainer
 					descendants={story.descendants}

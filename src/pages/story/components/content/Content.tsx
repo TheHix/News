@@ -11,7 +11,7 @@ import {
 import { FC } from "react";
 import styles from "./Content.module.css";
 
-interface ContentProps extends IStory {}
+interface ContentProps extends Omit<IStory, "descendants" | "id" | "type"> {}
 
 const Content: FC<ContentProps> = ({ url, title, score, by, time }) => {
 	const formattedDate = formatDate(time);

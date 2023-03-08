@@ -10,7 +10,8 @@ import React, { FC, memo } from "react";
 import { ThumbUp } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
-interface StoriesItemProps extends IStory {}
+interface StoriesItemProps
+	extends Omit<IStory, "descendants" | "url" | "type"> {}
 
 const StoriesItem: FC<StoriesItemProps> = ({ time, by, score, title, id }) => {
 	const formattedDate = formatDate(time);

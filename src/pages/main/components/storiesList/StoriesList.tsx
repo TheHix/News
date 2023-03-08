@@ -34,8 +34,19 @@ const StoriesList = () => {
 			</Button>
 			<List>
 				{stories.map((story) => {
-					if (story.dead || story.deleted) return null;
-					return <StoriesItem key={story.id} {...story} />;
+					const { by, dead, deleted, time, score, title, id } = story;
+
+					if (dead || deleted) return null;
+					return (
+						<StoriesItem
+							key={story.id}
+							time={time}
+							by={by}
+							score={score}
+							title={title}
+							id={id}
+						/>
+					);
 				})}
 			</List>
 		</>
